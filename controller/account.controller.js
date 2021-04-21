@@ -55,7 +55,7 @@ module.exports.postAvatar = async (req, res) => {
     let id = req.signedCookies.member_id
     await Member.findOne({_id: id}, function (err, member) {
         if (err) throw err;
-        member.avatar = req.file.path.split('\\').slice(1).join('/')
+        member.avatar = req.file.path.split('/').slice(1).join('/')
         member.save(function (err, result) {
             if (err) {
                 console.log('fail')
