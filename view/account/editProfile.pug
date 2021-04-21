@@ -1,0 +1,29 @@
+extends ../layout/common
+block content
+    .row.justify-content-center.mt-3
+        .col-md-6
+            .card
+                header.card-header
+                    h4.card-title.mt-2 Edit profile
+                article.card-body
+                    form(action='/profile/edit',method='POST')
+                        .form-group
+                            label Full name
+                            input.form-control(type='text', placeholder='',name='fullName', value= member ? member.fullName: '')
+                        .form-group
+                            label Phone
+                            input.form-control(type='text', placeholder='',name='phone', value= member ? member.phone: '')
+                        .form-group
+                            label Birthday
+                            input.form-control(type='date', placeholder='',name='birthday', value= member ? member.birthday: '')
+                        .form-group
+                            label Sex
+                            input.form-control(type='text', placeholder='',name='sex', value= member ? member.sex: '')
+                        .form-group
+                            label Job
+                            input.form-control(type='text', placeholder='',name='job', value= member ? member.job: '')
+                        .form-group
+                            label Description
+                            input.form-control(type='text', placeholder='',name='description', value= member ? member.description: '')
+                        button.btn.btn-primary.btn-block  Update
+

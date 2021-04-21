@@ -1,0 +1,46 @@
+extends ../layout/common
+block content
+    .row
+        .col-md-12.mx-auto
+            // Profile widget
+            .bg-white.shadow.rounded.overflow-hidden
+                .px-4.pt-0.pb-5.cover
+                    .media.align-items-end.profile-head
+                        .profile.mr-3
+                            img.rounded.mb-2.img-thumbnail(src=member.avatar ? '/'+member.avatar : '/images/tp.jpg', alt='...', width='130')
+                        .media-body.mb-5.text-white
+                            h4.mt-0.mb-0= member.fullName
+                            p.small.mb-4
+                                i.fas.fa-map-marker-alt.mr-2= member.email
+                .bg-light.p-4.d-flex.justify-content-end.text-center
+
+                .px-4.py-3
+                    h5.mb-0 Phone
+                    .p-4.rounded.shadow-sm.bg-light
+                        p.font-italic.mb-0= member.phone ? member.phone : ''
+                .px-4.py-3
+                    h5.mb-0 Birthday
+                    .p-4.rounded.shadow-sm.bg-light
+                        p.font-italic.mb-0= member.birthday ? member.birthday : ''
+                .px-4.py-3
+                    h5.mb-0 Sex
+                    .p-4.rounded.shadow-sm.bg-light
+                        p.font-italic.mb-0= member.sex ? member.sex : ''
+                .px-4.py-3
+                    h5.mb-0 Job
+                    .p-4.rounded.shadow-sm.bg-light
+                        p.font-italic.mb-0= member.job ? member.job : ''
+                .px-4.py-3
+                    h5.mb-0 Description
+                    .p-4.rounded.shadow-sm.bg-light
+                        p.font-italic.mb-0= member.description ? member.description : ''
+
+    .row.ml-1.mt-2
+        form(action='/profile/avatar', method='GET')
+            button.btn.btn-primary Change avatar
+        form(action='/profile/edit', method='GET')
+            button.ml-3.btn.btn-primary Edit profile
+        form(action='/profile/delete', method='POST')
+            button.ml-3.btn.btn-primary Delete Account
+        form(action='/logout', method='POST')
+            button.ml-3.btn.btn-primary Log out

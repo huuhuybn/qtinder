@@ -1,0 +1,15 @@
+extends ../layout/common
+block content
+    .mt-3
+        h1.mb-5
+            span.mr-3 All members
+        .d-flex.align-items-center
+        .row
+            each member in members
+                .col-sm-6.col-md-4.col-lg-3
+                    .card.mb-3
+                        img.card-img-top(src=member.avatar ? '/'+member.avatar : '/images/tp.jpg')
+                        .card-body
+                            h5.card-title= member.fullName
+                            p.card-text= member.description ? member.description : ''
+                            a.btn.btn-primary(href='/member/'+ member._id) View

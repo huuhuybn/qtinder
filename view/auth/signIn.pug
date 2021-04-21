@@ -1,0 +1,31 @@
+extends ../layout/common
+block content
+    .row.justify-content-center.mt-3
+        .col-md-6
+            if errors
+                each error in errors
+                    .alert.alert-danger= error
+            .card
+                header.card-header
+                    a.float-right.btn.btn-outline-primary.mt-1(href='/signup') Sign up
+                    h4.card-title.mt-2 Sign in
+                article.card-body
+                    form(action='/login', method='POST')
+                        .form-group
+                            label(for='email') Email
+                            input#email.form-control(type='text', name='email', value= values ? values.email : '')
+                        // form-group end.//
+                        .form-group
+                            label(for='password') Password
+                            input#password.form-control(type='password', name='password', value= values ? values.password: '')
+                            a.pull-right(href='#') Forgot password?
+                        // form-group end.//
+                        button.btn.btn-primary.btn-block  Sign in
+                // card-body end .//
+                .border-top.card-body.text-center
+                    | Have not an account?
+                    span &nbsp;
+                    a(href='/signup') Sign up
+            // card.//
+        // col.//
+    // row.//
