@@ -1,10 +1,9 @@
 const Member = require('../model/member.model')
 
 module.exports.index = async (req, res) => {
-    res.render('members/index',
-        {
+    res.render('members/index', {
             members: await Member.find()
-        })
+    })
 }
 
 module.exports.get = async (req, res) => {
@@ -15,4 +14,3 @@ module.exports.get = async (req, res) => {
         member: member
     })
 }
-

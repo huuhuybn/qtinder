@@ -7,6 +7,8 @@ const authRoute = require('./routes/auth.route')
 const memberRoute = require('./routes/member.route')
 const accountRoute = require('./routes/account.route')
 
+const memberApi = require('./api/member.api')
+
 const authMiddleware = require('./middleware/auth.middleware')
 
 const app = express()
@@ -29,6 +31,8 @@ app.get('/', (req, res) => {
 app.use('/', authRoute)
 app.use('/member', authMiddleware.reqAuth, memberRoute)
 app.use('/profile', authMiddleware.reqAuth, accountRoute)
+
+app.use('/api',memberApi)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://${hostname}:${port}`)
