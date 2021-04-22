@@ -38,6 +38,7 @@ module.exports.postSignIn = async (req, res) => {
 }
 module.exports.postSignUp = async (req, res) => {
     req.body.password = md5(req.body.password)
+    req.body.avatar = 'images/tp.jpg'
     await Member.create(req.body)
     res.redirect('/login')
 }
